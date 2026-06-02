@@ -18,7 +18,11 @@
   justify-content: space-between;
   margin-bottom: 1.8rem;
 }
-
+.btn-acc-rej {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+}
 .dash-topbar h1 {
   font-size: 22px;
   font-weight: 600;
@@ -106,7 +110,7 @@
   background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 14px;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .inq-card h3 {

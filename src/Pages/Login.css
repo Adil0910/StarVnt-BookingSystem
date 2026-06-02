@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    background: #fbfbfb;
+}
 .main-login {
     width: 100%;
     max-width: 1200px;

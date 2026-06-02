@@ -91,7 +91,7 @@ const handleSubmit = async (e) => {
           </button>
         </form>
 
-        <p style={{ marginTop: "12px", fontSize: "14px" }}>
+        <p style={{ marginTop: "12px !important", fontSize: "14px" }}>
           Not registered?{" "}
           <Link to="/register" style={{ color: "blue" }}>
             Register here

@@ -24,11 +24,14 @@ function Dashboard() {
   const [imagePreview, setImagePreview] = useState("");
   const [imageUploading, setImageUploading] = useState(false);
 
-  const loadStats = async () => {
-    const { data } = await API.get("/vendors/dashboard-stats");
+const loadStats = async () => {
+  try {
+    const { data } = await API.get("/inquiries/dashboard-stats"); // ✅ vendors → inquiries
     if (data.success) setStats(data.stats);
-  };
-
+  } catch (err) {
+    console.error("Stats error:", err);
+  }
+};
   const loadInquiries = async () => {
     const { data } = await API.get("/inquiries/vendor");
     if (data.success) setInquiries(data.inquiries);
@@ -173,7 +176,7 @@ function Dashboard() {
                   <td>{inq.eventType}</td>
                   <td>{inq.eventDate ? new Date(inq.eventDate).toLocaleDateString("en-IN") : "—"}</td>
                   <td><span className={`badge ${inq.status.toLowerCase()}`}>{inq.status}</span></td>
-                  <td>
+                  <td className="btn-acc-rej">
                     {inq.status === "Pending" && (
                       <>
                         <button onClick={() => updateStatus(inq._id, "Accepted")} className="btn-accept">Accept</button>
