@@ -13,7 +13,6 @@ function Dashboard() {
   const [vendorId, setVendorId] = useState("");
   const [copied, setCopied] = useState(false);
 
-  // Profile states
   const [showProfile, setShowProfile] = useState(false);
   const [profileData, setProfileData] = useState({
     businessName: "", category: "", phone: "", location: "", profileImage: ""
@@ -91,7 +90,6 @@ const loadStats = async () => {
     try {
       let imageUrl = profileData.profileImage;
 
-      // Pehle image upload karo agar naya select hua
       if (imageFile) {
         setImageUploading(true);
         const formData = new FormData();
@@ -103,7 +101,6 @@ const loadStats = async () => {
         setImageUploading(false);
       }
 
-      // Profile update
       const { data } = await API.put("/vendors/profile", {
         ...profileData,
         profileImage: imageUrl,
@@ -127,7 +124,6 @@ const loadStats = async () => {
   return (
     <div className="dashboard">
 
-      {/* Navbar */}
       <div className="dash-navbar">
         <h1 className="dash-title">Dashboard</h1>
         <button className="btn-profile" onClick={() => setShowProfile(true)}>
@@ -138,7 +134,6 @@ const loadStats = async () => {
         </button>
       </div>
 
-      {/* Share Card */}
       {vendorId && (
         <div className="share-card">
           <div className="share-info">
@@ -155,7 +150,6 @@ const loadStats = async () => {
         </div>
       )}
 
-      {/* Stats */}
       <div className="stats-grid">
         <div className="stat-card"><span>Total</span><h2>{stats.total}</h2></div>
         <div className="stat-card pending"><span>Pending</span><h2>{stats.pending}</h2></div>
@@ -163,7 +157,6 @@ const loadStats = async () => {
         <div className="stat-card rejected"><span>Rejected</span><h2>{stats.rejected}</h2></div>
       </div>
 
-      {/* Inquiries Table */}
       <div className="inq-card">
         <h3>Recent Inquiries</h3>
         {loading ? <p>Loading...</p> : inquiries.length === 0 ? <p>No inquiries found</p> : (
@@ -192,7 +185,6 @@ const loadStats = async () => {
         )}
       </div>
 
-      {/* Inquiry Detail Modal */}
       {selectedInquiry && (
         <div className="modal-overlay" onClick={() => setSelectedInquiry(null)}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -209,7 +201,6 @@ const loadStats = async () => {
         </div>
       )}
 
-      {/* Profile Modal */}
       {showProfile && (
         <div className="modal-overlay" onClick={() => setShowProfile(false)}>
           <div className="modals profile-modal" onClick={(e) => e.stopPropagation()}>
@@ -223,7 +214,6 @@ const loadStats = async () => {
 
             <form onSubmit={handleProfileUpdate} className="profile-form">
 
-              {/* Image Upload */}
               <div className="form-group img-upload-group">
                 <div className="img-upload-preview">
                   {(imagePreview || profileData.profileImage) ? (
