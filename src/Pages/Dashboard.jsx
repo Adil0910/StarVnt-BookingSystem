@@ -212,7 +212,7 @@ const loadStats = async () => {
       {/* Profile Modal */}
       {showProfile && (
         <div className="modal-overlay" onClick={() => setShowProfile(false)}>
-          <div className="modal profile-modal" onClick={(e) => e.stopPropagation()}>
+          <div className="modals profile-modal" onClick={(e) => e.stopPropagation()}>
             <h2>My Profile</h2>
 
             {profileMsg && (
