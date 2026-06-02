@@ -115,4 +115,9 @@
     padding: 0rem !important;
     display: flex;
 }
+.inquiry-subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-block: 1rem !important;
+}
 }
