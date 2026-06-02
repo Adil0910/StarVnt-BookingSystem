@@ -1,0 +1,451 @@
+
+*{
+    margin: 0 !important;
+    padding: 0;
+}
+.dashboard {
+    padding: 2rem;
+    width: 100% !important;
+    display: flex;
+    gap: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+    flex-direction: column;
+}
+
+.dash-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.8rem;
+}
+
+.dash-topbar h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.dash-topbar span {
+  font-size: 13px;
+  color: #888;
+}
+
+/* ===== Stats Cards ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+    border-radius: 14px;
+    padding: 1.2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1.5px solid #77c123b3;
+}
+
+.stat-card .stat-icon {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.stat-card .stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.stat-card h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Total */
+.stat-card.total {
+  background: #E6F1FB;
+  border-color: #85B7EB;
+}
+.stat-card.total .stat-icon { color: #185FA5; }
+.stat-card.total .stat-label { color: #0C447C; }
+.stat-card.total h2 { color: #042C53; }
+
+/* Pending */
+.stat-card.pending {
+  background: #FAEEDA;
+  border-color: #EF9F27;
+}
+.stat-card.pending .stat-icon { color: #854F0B; }
+.stat-card.pending .stat-label { color: #633806; }
+.stat-card.pending h2 { color: #412402; }
+
+/* Accepted */
+.stat-card.accepted {
+  background: #EAF3DE;
+  border-color: #97C459;
+}
+.stat-card.accepted .stat-icon { color: #3B6D11; }
+.stat-card.accepted .stat-label { color: #27500A; }
+.stat-card.accepted h2 { color: #173404; }
+
+/* Rejected */
+.stat-card.rejected {
+  background: #FCEBEB;
+  border-color: #F09595;
+}
+.stat-card.rejected .stat-icon { color: #A32D2D; }
+.stat-card.rejected .stat-label { color: #791F1F; }
+.stat-card.rejected h2 { color: #501313; }
+
+/* ===== Inquiries Table ===== */
+.inq-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.inq-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #1a1a2e;
+}
+
+.inq-card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.inq-card th {
+  padding: 0.65rem 1rem;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.inq-card td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  color: #1a1a2e;
+  vertical-align: middle;
+}
+
+.inq-card tr:last-child td { border-bottom: none; }
+.inq-card tr:hover td { background: #fafafa; }
+
+.client-name { font-weight: 600; font-size: 13px; }
+.client-email { font-size: 11px; color: #999; margin-top: 2px; }
+
+/* ===== Badges ===== */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge.pending  { background: #FAEEDA; color: #633806; }
+.badge.accepted { background: #EAF3DE; color: #27500A; }
+.badge.rejected { background: #FCEBEB; color: #791F1F; }
+
+/* ===== Action Buttons ===== */
+.btn-accept {
+  background: #EAF3DE;
+  color: #27500A;
+  border: 1px solid #97C459;
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-reject {
+  background: #FCEBEB;
+  color: #791F1F;
+  border: 1px solid #F09595;
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 6px;
+  transition: background 0.2s;
+}
+
+.btn-accept:hover { background: #C0DD97; }
+.btn-reject:hover { background: #F7C1C1; }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+}
+
+.btn-view {
+  margin-left: 8px;
+  color: black;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+.btn-close {
+  margin-top: 15px;
+  background: black;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Share Card */
+.share-card {
+  background: linear-gradient(135deg, #E6F1FB, #EAF3DE);
+  border: 1.5px solid #85B7EB;
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.share-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.share-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0C447C;
+}
+
+.share-url {
+  font-size: 13px;
+  color: #444;
+  word-break: break-all;
+}
+
+.share-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-copy {
+  background: #E6F1FB;
+  color: #0C447C;
+  border: 1.5px solid #85B7EB;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-copy:hover { background: #C0D8F0; }
+.btn-whatsapp:hover { background: #1ebe5d; }
+svg.fa-whatsapp {
+    font-size: 1.4rem;
+}
+
+/* Navbar */
+.dash-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.dash-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.btn-profile {
+  background: #E6F1FB;
+  color: #0C447C;
+  border: 1.5px solid #85B7EB;
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-profile:hover { background: #C0D8F0; }
+
+/* Profile Modal */
+.profile-modal {
+  max-width: 480px;
+  width: 90%;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.profile-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.profile-form label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+}
+
+.profile-form input,
+.profile-form select {
+  padding: 10px 14px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.profile-form input:focus,
+.profile-form select:focus {
+  border-color: #378ADD;
+}
+
+.profile-form-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #378ADD, #185FA5);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+}
+
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.alert { padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: 0.5rem; }
+.alert-success { background: #EAF3DE; color: #27500A; }
+.alert-error { background: #FCEBEB; color: #791F1F; }
+
+
+/* Navbar pfp */
+.nav-pfp {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Image Upload */
+.img-upload-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.img-upload-preview {
+  width: 90px;
+  height: 90px;
+}
+
+.img-preview {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #85B7EB;
+}
+
+.img-placeholder {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #E6F1FB;
+  border: 3px solid #85B7EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.img-upload-btn {
+  background: #E6F1FB;
+  color: #0C447C;
+  border: 1.5px solid #85B7EB;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.img-upload-btn:hover { background: #C0D8F0; }
+
+@media (max-width: 768px){
+  .profile-modal {
+    max-width: 480px;
+    width: 90%;
+    padding-block: 2rem;
+}
+}
