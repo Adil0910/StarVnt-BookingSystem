@@ -25,7 +25,7 @@ function Dashboard() {
 
 const loadStats = async () => {
   try {
-    const { data } = await API.get("/inquiries/dashboard-stats"); // ✅ vendors → inquiries
+    const { data } = await API.get("/inquiries/dashboard-stats"); 
     if (data.success) setStats(data.stats);
   } catch (err) {
     console.error("Stats error:", err);

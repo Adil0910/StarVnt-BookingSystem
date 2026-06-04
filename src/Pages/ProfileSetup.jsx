@@ -27,7 +27,7 @@ function ProfileSetup() {
 
     try {
       await API.post("/vendors/profile", formData);
-      navigate("/dashboard"); // ✅ Profile bana to dashboard
+      navigate("/dashboard"); 
     } catch (err) {
       setError(err.response?.data?.message || "Profile setup failed");
     } finally {

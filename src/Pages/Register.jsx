@@ -97,7 +97,7 @@ function Register() {
         <p style={{ marginTop: "12px !important", fontSize: "14px" }}>
           Already have an account?{" "}
           <Link to="/login" style={{ color: "blue" }}>
-            Login karo
+            Login
           </Link>
         </p>
       </div>

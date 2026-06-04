@@ -34,8 +34,8 @@ form.reg-form {
     justify-content: center;
 }
 input.input-reg {
-    padding-block: 0.6rem;
-    padding-inline: 1rem;
+    padding-block: 0.8rem;
+    padding-inline: 3rem;
 }
 button.btn-reg {
     padding-block: 0.5rem;
@@ -56,11 +56,23 @@ img.img-register {
     height: 42vh;
 }
 .reg-1 {
-    height: 40vh;
+    height: auto;
     display: flex;
     width: 100%;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+}
+button.btn-reg {
+    padding-block: 0.9rem;
+    padding-inline: 1.9rem;
+    border: none;
+    margin-block: 1rem !important;
+    background: orangered;
+    color: white;
+    border-radius: 7px;
+}
+h1 {
+    margin-bottom: 1rem !important;
 }
 }
